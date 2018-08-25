@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="user-layout">
+    <div th:fragment="content">
+
+
+
+        <h1>本月账单信息</h1>
+
+        账单状态：<span th:text="${bill.should_pay==0}"></span><br>
+        用电度数：<span th:text="${bill.electric_degree}"></span><br>
+        本月电费：<span th:text="${bill.total_fee}"></span><br>
+        已付电费：（包括上月结余）<span th:text="${bill.has_paid}"></span><br>
+        目前欠费：<span th:text="${bill.should_pay}"></span><br>
+        费用类型1：<span th:text="${bill.fee1}"></span><br>
+        费用类型2：<span th:text="${bill.fee2}"></span><br>
+        账单生成日期：<span th:text="${bill.generate_date}"></span>
+
+        <script>
+        window.onload = ()=>{
+            $("#sidenav").find('li:eq(2)').attr("class","nav-item active");
+        }
+        </script>
+
+
+
+    </html>
+</html>

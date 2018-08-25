@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="user-layout">
+    <div th:fragment="content">
+
+
+
+        <h1>我的账户</h1>
+
+        <div class="card card-profile">
+            <div class="card-avatar">
+              <a href="">
+                <img class="img" src="../assets/img/faces/marc.jpg">
+              </a>
+            </div>
+            <div class="card-body">
+                用户名：<span th:text="${username}"></span><br>
+                注册日期：<span th:text="${register_date}"></span><br>
+                电话号码：<span th:text="${telephone}"></span><br>
+                账户余额：<span th:text="${balance}"></span>
+            </div>
+        </div>
+
+
+        <div class="card card-stats" th:each="device:${my_devices}">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">store</i>
+            </div>
+            <p class="card-category" th:text="${device.device_type}"></p>
+            <h3 class="card-title" th:text="'$'+${device.arrears}"></h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i>
+              <span th:text="${device.address}"></span>
+            </div>
+          </div>
+        </div>
+
+        <script>
+        window.onload = ()=>{
+            $("#sidenav").find('li:eq(1)').attr("class","nav-item active");
+        }
+        </script>
+
+
+
+
+    </html>
+</html>
