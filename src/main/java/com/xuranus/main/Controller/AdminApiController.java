@@ -1,4 +1,4 @@
-package com.xuranus.main;
+package com.xuranus.main.Controller;
 
 public class AdminApiController {
 }

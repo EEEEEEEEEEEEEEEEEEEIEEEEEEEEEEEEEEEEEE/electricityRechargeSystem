@@ -89,6 +89,7 @@
         <div class="container-fluid">
           <div class="navbar-wrapper">
               <a class="navbar-brand" th:text="'欢迎：'+${username}" href="javascript:;"></a>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span id="localTime"></span>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -150,6 +151,10 @@
   <script src="/assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="/assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+
+  <script>
+  $("#localTime").text((new Date()).toLocaleString());
+  </script>
 </body>
 
 </html>

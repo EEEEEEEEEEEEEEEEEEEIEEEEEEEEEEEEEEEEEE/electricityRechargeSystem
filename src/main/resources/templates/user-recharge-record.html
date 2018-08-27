@@ -2,17 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="user-layout">
     <div th:fragment="content">
         <h1>历史缴费记录</h1>
-        
+
 
         <div class="card" th:each="record:${historyRechargeRecord}">
-            <div class="card-body">
-                充值单号<p th:text="${record.recharge_id}"></p>
-                充值日期<p th:text="${record.recharge_date}"></p>
-                充值备注<p th:text="${record.recharge_remark}"></p>
-                银行流水号<p th:text="${record.payment_seq_number}"></p>
-                用户ID<p th:text="${record.user_id}"></p>
-                设备号<p th:text="${record.device_id}"></p>
-            </div>
+          <div class="card-header card-header-primary">
+            <h4 class="card-title" th:text="'日期：'+${record.recharge_date}"></h4>
+            <p class="card-category" th:text="'备注：'+${record.recharge_remark}"></p>
+          </div>
+
+          <div class="card-body">
+              银行流水号:<span th:text="${record.payment_seq_number}"></span>
+              设备号:<span th:text="${record.device_id}"></span>
+          </div>
         </div>
 
         <script>
@@ -20,10 +21,6 @@
             $("#sidenav").find('li:eq(4)').attr("class","nav-item active");
         }
         </script>
-
-
-
-
 
     </html>
 </html>

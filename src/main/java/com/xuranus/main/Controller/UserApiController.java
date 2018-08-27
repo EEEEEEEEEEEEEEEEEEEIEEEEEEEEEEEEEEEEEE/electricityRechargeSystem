@@ -1,4 +1,4 @@
-package com.xuranus.main;
+package com.xuranus.main.Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +20,12 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/user/api")
-public class userApiController {
+public class UserApiController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping("/handleRechargeRequest")
+    @RequestMapping("/handleRechargeRequest")//处理缴费信息
     public Map test(HttpSession session, HttpServletRequest req, HttpServletResponse res) {
         int user_id = (int)session.getAttribute("user_id");
         String device_id = req.getParameter("device_id");
@@ -47,12 +47,19 @@ public class userApiController {
         int payment_seq_number=keyHolder.getKey().intValue();//生产的流水号
         //System.out.println("Sequence_number: "+payment_seq_number);
 
+
         //插入到企业缴费记录
-        String sql = "insert into recharge (recharge_date,recharge_remark,payment_seq_number,user_id,device_id) values "+
+        String sql2 = "insert into recharge (recharge_date,recharge_remark,payment_seq_number,user_id,device_id) values "+
                 "(NOW(),'缴费',"+payment_seq_number+","+user_id+","+device_id+")";
         //System.out.println(sql);
+
+
+        //冲欠费->当月->余额
+
+
+
         Map resJson = new HashMap();
-        if(jdbcTemplate.update(sql)>0) {//成功
+        if(jdbcTemplate.update(sql2)>0) {//成功
             resJson.put("success",true);
         }
         else {

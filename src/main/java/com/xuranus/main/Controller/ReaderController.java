@@ -1,4 +1,4 @@
-package com.xuranus.main;
+package com.xuranus.main.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
