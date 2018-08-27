@@ -1,5 +1,6 @@
 # 电费代缴费系统
 > NEU2018暑期大三课设    
+
 ![](http://www.lgstatic.com/thumbnail_300x300/i/image/M00/3D/E1/CgqKkVdzQLGAfnRJAAF51KdDh2o635.jpg)
 
 # 后端及数据库
